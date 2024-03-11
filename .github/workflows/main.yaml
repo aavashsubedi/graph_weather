@@ -18,7 +18,11 @@ jobs:
             torchvision-version: 0.15.1
           - torch-version: 2.2.0
             torchvision-version: 0.17.0
-
+        exclude:
+          - python-version: "3.12"
+            torch-version: 2.0.0
+          - python-version: "3.12"
+            torch-version: 2.1.0
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
