@@ -62,7 +62,7 @@ jobs:
           pip install pytest-cov
           #
           # make PYTESTCOV
-          export PYTESTCOV="--cov=graph_weather--cov-report=xml"
+          export PYTESTCOV="--cov=graph_weather tests/ --cov-report=xml"
           # echo results and save env var for other jobs
           echo "pytest-cov options that will be used are: $PYTESTCOV"
           echo "PYTESTCOV=$PYTESTCOV" >> $GITHUB_ENV
