@@ -32,8 +32,8 @@ jobs:
           if [[ "${{ matrix.python-version }}" == "3.12" && ("${{ matrix.torch-version }}" == "2.0.0" || "${{ matrix.torch-version }}" == "2.1.0") ]]; then
             echo "Skipping PyTorch version ${{ matrix.torch-version }} for Python version 3.12.0"
           else
-            echo "Current versions torch: ${{ matrix.torch-version}}, torchvision: ${{ matrix.torchversion-version}}"
-            pip install torch==${{ matrix.torch-version}} torchvision==${{ matrix.torchversion-version}} --index-url https://download.pytorch.org/whl/cpu
+            echo "Current versions torch: ${{ matrix.torch-version}}, torchvision: ${{ matrix. torchvision-version}}"
+            pip install torch==${{ matrix.torch-version}} torchvision==${{ matrix.torchvision-version}} --index-url https://download.pytorch.org/whl/cpu
           fi
       - name: Install internal dependencies
         run: |
