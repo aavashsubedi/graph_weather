@@ -32,14 +32,7 @@ jobs:
 
       - name: Install PyTorch ${{ matrix.torch-version }}+cpu
         run: |
-          #Skipping Torch version 2.0.0 or 2.1.0 for Python version 3.12.0. See here: https://github.com/pytorch/pytorch/issues/110436
-          if [[ "${{ matrix.python-version }}" == "3.12" && ("${{ matrix.torch-version }}" == "2.0.0" || "${{ matrix.torch-version }}" == "2.1.0") ]]; then
-            echo "Skipping PyTorch version ${{ matrix.torch-version }} for Python version 3.12.0"
-            exit 0
-          else
-            echo "Current versions torch: ${{ matrix.torch-version}}, torchvision: ${{ matrix. torchvision-version}}"
-            pip install torch==${{ matrix.torch-version}} torchvision==${{ matrix.torchvision-version}} --index-url https://download.pytorch.org/whl/cpu
-          fi
+          pip install torch==${{ matrix.torch-version}} torchvision==${{ matrix.torchvision-version}} --index-url https://download.pytorch.org/whl/cpu
       - name: Install internal dependencies
         run: |
           pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-${{ matrix.torch-version}}+cpu.html
@@ -65,7 +58,7 @@ jobs:
           echo "Will be looking at coverage of dir  graph_weather"
           #
           # install pytest-cov
-          pip install coverage==7.4.3 # https://github.com/nedbat/coveragepy/issues/1312
+          pip install coverage==7.4.3
           pip install pytest-cov
           #
           # make PYTESTCOV
