@@ -65,7 +65,7 @@ jobs:
           echo "Will be looking at coverage of dir  graph_weather"
           #
           # install pytest-cov
-          pip install coverage==6.2 # https://github.com/nedbat/coveragepy/issues/1312
+          pip install coverage==7.4.3 # https://github.com/nedbat/coveragepy/issues/1312
           pip install pytest-cov
           #
           # make PYTESTCOV
