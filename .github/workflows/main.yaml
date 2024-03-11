@@ -31,6 +31,7 @@ jobs:
           #Skipping Torch version 2.0.0 or 2.1.0 for Python version 3.12.0. See here: https://github.com/pytorch/pytorch/issues/110436
           if [[ "${{ matrix.python-version }}" == "3.12" && ("${{ matrix.torch-version }}" == "2.0.0" || "${{ matrix.torch-version }}" == "2.1.0") ]]; then
             echo "Skipping PyTorch version ${{ matrix.torch-version }} for Python version 3.12.0"
+            exit 0
           else
             echo "Current versions torch: ${{ matrix.torch-version}}, torchvision: ${{ matrix. torchvision-version}}"
             pip install torch==${{ matrix.torch-version}} torchvision==${{ matrix.torchvision-version}} --index-url https://download.pytorch.org/whl/cpu
